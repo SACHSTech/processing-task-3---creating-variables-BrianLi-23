@@ -8,6 +8,7 @@ public class Sketch extends PApplet {
   public void settings() {
     // put your size call here
     size(500, 500);
+
   }
 
   /**
@@ -22,13 +23,37 @@ public class Sketch extends PApplet {
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
+    background(210, 255, 173);
 
-    // sample code, delete this stuff
-    stroke(128);
-    line(150, 25, 270, 350);
+    // Setting random variables
+    float fltWidth = random(0, width);
+    float fltHeight = random(0, height);
+    float fltColorR = random(0, 255);
+    float fltColorG = random(0, 255);
+    float fltColorB = random(0, 255);
 
-    stroke(255);
-    line(50, 125, 70, 50);
+    // Setting cloud object position (With random color each frame)
+    noStroke();
+    fill(fltColorR, fltColorG, fltColorB);
+    ellipse(fltWidth / 1.3f, fltHeight / 5.2f, width / 15f, height / 15f);
+    ellipse(fltWidth / 1.29f, fltHeight / 4.6f, width / 15f, height / 15f);
+    ellipse(fltWidth / 1.38f, fltHeight / 4.6f, width / 15f, height / 15f);
+    ellipse(fltWidth / 1.27f, fltHeight / 5.2f, width / 15f, height / 15f);
+    ellipse(fltWidth / 1.2f, fltHeight / 4.6f, width / 15f, height / 15f);
+
+    // Setting values for time
+    int intHour = hour();
+    int intMinute = minute();
+    int intSecond = second();
+
+    // Printing out time
+    String strTime = (str(intHour % 12) + ":" + str(intMinute) + ":" + str(intSecond));
+
+    // Setting font and size of text
+    fill(0, 0, 0);
+    textSize(100);
+    text(strTime, 110, 275);
+
   }
 
   // define other methods down here.
