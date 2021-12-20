@@ -17,13 +17,6 @@ public class Sketch extends PApplet {
    */
   public void setup() {
     background(210, 255, 173);
-  }
-
-  /**
-   * Called repeatedly, anything drawn to the screen goes here
-   */
-  public void draw() {
-    background(210, 255, 173);
 
     // Setting random variables
     float fltWidth = random(0, width);
@@ -40,6 +33,16 @@ public class Sketch extends PApplet {
     ellipse(fltWidth / 1.38f, fltHeight / 4.6f, width / 15f, height / 15f);
     ellipse(fltWidth / 1.27f, fltHeight / 5.2f, width / 15f, height / 15f);
     ellipse(fltWidth / 1.2f, fltHeight / 4.6f, width / 15f, height / 15f);
+  }
+
+  /**
+   * Called repeatedly, anything drawn to the screen goes here
+   */
+  public void draw() {
+    // Draw rectangle in front of time
+    fill(255, 255);
+    stroke(153);
+    rect(60, 180, 400, 130);
 
     // Setting values for time
     int intHour = hour();
@@ -50,6 +53,7 @@ public class Sketch extends PApplet {
     String strTime = (str(intHour % 12) + ":" + str(intMinute) + ":" + str(intSecond));
 
     // Setting font and size of text
+    noStroke();
     fill(0, 0, 0);
     textSize(100);
     text(strTime, 110, 275);
